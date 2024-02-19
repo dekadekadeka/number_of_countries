@@ -14,6 +14,7 @@ program number_of_countries
     read(*,*,iostat=error) countries
 
     if (error .eq. 0 .and. countries .gt. 0) then
+      ! error .eq. 0 means there is no error, and countries must be a positive integer (greater than 0)
       exit
     end if
 
@@ -21,7 +22,7 @@ program number_of_countries
   end do
 
   if (countries .eq. 1) then
-    print '("You have not been out of the country yet, maybe one day")'
+    print '("You haven''t been out of the country yet, maybe one day")'
   else
     call print_countries(countries)
   end if
