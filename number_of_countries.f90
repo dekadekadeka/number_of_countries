@@ -1,8 +1,14 @@
 subroutine print_countries(countries)
   implicit none
   integer, intent(in) :: countries
+  integer :: avg_difference
+
+  ! Get the difference assuming an average of 10 countries visited
+  ! it has to be done as a real (float) and then cast to integer for aesthetic purposes
+  avg_difference = int(((countries - 10.0) / 10.0) * 100.0)
   
   print '("You have been to ", I0, " countries!!")', countries
+  print '("That is ", I0, "% different from the world average of 10 countries visited.")', avg_difference
 end subroutine
 
 program number_of_countries
@@ -14,7 +20,7 @@ program number_of_countries
     read(*,*,iostat=error) countries
 
     if (error .eq. 0 .and. countries .gt. 0) then
-      ! error .eq. 0 means there is no error, and countries must be a positive integer (greater than 0)
+      ! error .eq. 0 means there is no error, and countries must be an integer greater than 0
       exit
     end if
 

@@ -1,5 +1,10 @@
 # Number of Countries
-See how you compare to the US and world average number of countries visited.
+See how you compare to the world average number of countries visited.
+
+After asking ChatGPT about it:
+> According to a survey conducted by Booking.com in 2018, the global average number of countries visited by respondents was around 9. In contrast, a study published by Skyscanner in 2014 reported that the average number of countries visited by individuals worldwide was approximately 12.
+
+Because of this, I hard-coded the average number of countries visited to 10, and your result will be based off of that.
 
 ## Instructions
 1. Make sure you have [gfortran](https://gcc.gnu.org/fortran/) installed first.
