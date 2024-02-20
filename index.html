@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    let inputIdCounter = 0;
+    const footerSpan = document.createElement('span');
+    footerSpan.innerHTML = 'Number of Countries by dekadekadeka | <a href="https://github.com/dekadekadeka/number_of_countries">github</a> | <a href="">try again</a>'
+    
+    const printCountries = (countries) => {
+      const newDiv = document.createElement('div');
+      const avgDifference = ((countries - 10) / 10) * 100;
+
+      document.getElementById(`countries-input-${inputIdCounter}`).disabled = true;
+      inputIdCounter++;
+
+      newDiv.innerHTML = `
+        <p>You have been to ${countries} countries!!</p>
+        <p>That is ${avgDifference}% different from the world average of 10 countries visited.</p>
+      `;
+      document.getElementById('container').appendChild(newDiv).appendChild(footerSpan);
+    };
+
+    const numberOfCountries = (e) => {
+      const newDiv = document.createElement('div');
+      newDiv.className = "input-container";
+
+      const isValidNumber = /^\d+$/.test(e.value);
+
+      if (event.key === 'Enter') {
+        if (!isValidNumber || e.value === '0') {
+          document.getElementById(`countries-input-${inputIdCounter}`).disabled = true;
+          inputIdCounter++;
+
+          newDiv.innerHTML = `
+            <p>That's not a valid amount of countries, it must be at least 1. Try again!</p>
+            <label for="countries">How many countries have you been to?</label>
+            <input
+              class="country-number-input"
+              id="countries-input-${inputIdCounter}"
+              inputmode="numeric"
+              name="countries"
+              placeholder="Enter number here..."
+              type="text"
+              onkeydown="numberOfCountries(this)"
+            />
+          `
+          document.getElementById('container').appendChild(newDiv);
+        } else {
+          if (e.value === '1') {
+            document.getElementById(`countries-input-${inputIdCounter}`).disabled = true;
+            inputIdCounter++;
+
+            newDiv.innerHTML = `<p>You haven't been out of the country yet, maybe one day</p>`;
+            document.getElementById('container').appendChild(newDiv).appendChild(footerSpan);
+          } else {
+            printCountries(e.value)
+          }
+        }
+      }
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+  <title>Number of Countries</title>
+</head>
+<style>
+  body {
+    background-color: #131313;
+    color: #e6e4e1;
+    font-family: "Space Mono", monospace;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  label {
+    margin: 8px 0px;
+  }
+  .country-number-input {
+    background-color: #131313;
+    border: none;
+    color: #e6e4e1;
+    font-family: "Space Mono", monospace;
+    font-size: 16px;
+  }
+  .container {
+    margin: auto;
+    width: 50%;
+  }
+  .input-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+</style>
+<body>
+  <div class="container" id="container">
+    <div class="input-container">
+      <label for="countries">How many countries have you been to?</label>
+      <input
+        class="country-number-input"
+        id="countries-input-0"
+        inputmode="numeric"
+        name="countries"
+        placeholder="Enter number here..."
+        type="text"
+        onkeydown="numberOfCountries(this)"
+      />
+    </div>
+  </div>
+</body>
+</html>

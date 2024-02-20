@@ -6,6 +6,9 @@ After asking ChatGPT about it:
 
 Because of this, I hard-coded the average number of countries visited to 10, and your result will be based off of that.
 
+Web based [demo here](https://dekadekadeka.github.io/number_of_countries/)!!
+Exact same functionality, but done with Vanilla JS/HTML/CSS so you don't need to download or compile anything :)
+
 ## Instructions
 1. Make sure you have [gfortran](https://gcc.gnu.org/fortran/) installed first.
   - On Mac, you can run `brew install gfortran` and that's it.
