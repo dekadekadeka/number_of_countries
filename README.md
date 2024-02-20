@@ -7,7 +7,7 @@ After asking ChatGPT about it:
 Because of this, I hard-coded the average number of countries visited to 10, and your result will be based off of that.
 
 Web based [demo here](https://dekadekadeka.github.io/number_of_countries/)!!
-Exact same functionality, but done with Vanilla JS/HTML/CSS so you don't need to download or compile anything :)
+Same functionality, but done with Vanilla JS/HTML/CSS so you don't need to download or compile anything :)
 
 ## Instructions
 1. Make sure you have [gfortran](https://gcc.gnu.org/fortran/) installed first.
@@ -15,7 +15,7 @@ Exact same functionality, but done with Vanilla JS/HTML/CSS so you don't need to
 2. Navigate to the directory you pulled down the repo into.
   - If you opened the repo in your IDE, you should already be in the correct place.
 3. Run `gfortran number_of_countries.f90 -o number_of_countries ` in the terminal to compile
-4. Run ` ./number_of_countries` in the terminal to start the program.
+4. Run `./number_of_countries` in the terminal to start the program.
   - Alternatively, after you compile, and outside of your text editor/IDE, double-click on the binary file that was generated in the same directory to run the program; a terminal window running the program will open.
 
   For more information, please visit the [quick-start guide](https://fortran-lang.org/learn/quickstart/hello_world/).

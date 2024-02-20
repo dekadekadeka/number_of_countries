@@ -19,12 +19,12 @@ program number_of_countries
     print '(A)', 'How many countries have you been to?'
     read(*,*,iostat=error) countries
 
-    if (error .eq. 0 .and. countries .gt. 0) then
-      ! error .eq. 0 means there is no error, and countries must be an integer greater than 0
+    if (error .eq. 0 .and. countries .gt. 0 .and. countries .le. 200) then
+      ! error .eq. 0 means there is no error, and countries must be an integer greater than 0 and less than 200
       exit
     end if
 
-    print '("That''s not a valid amount of countries, it must be at least 1. Try again!")'
+    print '("That''s not a valid amount of countries, it must be between 1 and 200. Try again!")'
   end do
 
   if (countries .eq. 1) then

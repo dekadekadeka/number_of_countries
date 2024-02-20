@@ -7,7 +7,7 @@
   <script>
     let inputIdCounter = 0;
     const footerSpan = document.createElement('span');
-    footerSpan.innerHTML = 'Number of Countries by dekadekadeka | <a href="https://github.com/dekadekadeka/number_of_countries">github</a> | <a href="">try again</a>'
+    footerSpan.innerHTML = 'Number of Countries by Deka Ambia | <a href="https://github.com/dekadekadeka/number_of_countries">github</a> | <a href="">try again</a>'
     
     const printCountries = (countries) => {
       const newDiv = document.createElement('div');
@@ -20,22 +20,22 @@
         <p>You have been to ${countries} countries!!</p>
         <p>That is ${avgDifference}% different from the world average of 10 countries visited.</p>
       `;
-      document.getElementById('container').appendChild(newDiv).appendChild(footerSpan);
+      document.getElementById('container').appendChild(newDiv).appendChild(footerSpan).scrollIntoView();
     };
 
     const numberOfCountries = (e) => {
       const newDiv = document.createElement('div');
       newDiv.className = "input-container";
 
-      const isValidNumber = /^\d+$/.test(e.value);
+      const value = parseInt(e.value)
 
       if (event.key === 'Enter') {
-        if (!isValidNumber || e.value === '0') {
+        if (isNaN(value) || value <= 0 || value > 200) {
           document.getElementById(`countries-input-${inputIdCounter}`).disabled = true;
           inputIdCounter++;
 
           newDiv.innerHTML = `
-            <p>That's not a valid amount of countries, it must be at least 1. Try again!</p>
+            <p>That's not a valid amount of countries, it must be between 1 and 200. Try again!</p>
             <label for="countries">How many countries have you been to?</label>
             <input
               class="country-number-input"
@@ -47,15 +47,16 @@
             />
           `
           document.getElementById('container').appendChild(newDiv);
+          document.getElementById(`countries-input-${inputIdCounter}`).focus();
         } else {
-          if (e.value === '1') {
+          if (value === 1) {
             document.getElementById(`countries-input-${inputIdCounter}`).disabled = true;
             inputIdCounter++;
 
-            newDiv.innerHTML = `<p>You haven't been out of the country yet, maybe one day</p>`;
-            document.getElementById('container').appendChild(newDiv).appendChild(footerSpan);
+            newDiv.innerHTML = '<p>You haven\'t been out of the country yet, maybe one day</p>';
+            document.getElementById('container').appendChild(newDiv).appendChild(footerSpan).scrollIntoView();
           } else {
-            printCountries(e.value)
+            printCountries(value);
           }
         }
       }
@@ -89,6 +90,11 @@
   .container {
     margin: auto;
     width: 50%;
+  }
+  @media (max-width: 700px) {
+    .container {
+      width: 90%;
+    }
   }
   .input-container {
     display: flex;
