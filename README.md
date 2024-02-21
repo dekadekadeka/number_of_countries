@@ -14,7 +14,7 @@ Same functionality, but done with Vanilla JS/HTML/CSS so you don't need to downl
   - On Mac, you can run `brew install gfortran` and that's it.
 2. Navigate to the directory you pulled down the repo into.
   - If you opened the repo in your IDE, you should already be in the correct place.
-3. Run `gfortran number_of_countries.f90 -o number_of_countries ` in the terminal to compile
+3. Run `gfortran number_of_countries.f90 -o number_of_countries` in the terminal to compile
 4. Run `./number_of_countries` in the terminal to start the program.
   - Alternatively, after you compile, and outside of your text editor/IDE, double-click on the binary file that was generated in the same directory to run the program; a terminal window running the program will open.
 
